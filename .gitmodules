@@ -1,0 +1,3 @@
+[submodule "eggs/nvim"]
+	path = eggs/nvim
+	url = https://github.com/jimmyl0l3c/nvim.rc.git
