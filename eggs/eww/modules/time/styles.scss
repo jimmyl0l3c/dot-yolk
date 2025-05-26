@@ -1,0 +1,59 @@
+// time
+.time {
+  border-radius: 12px;
+  padding: .4rem .9rem;
+  background-color: $theme-bg;
+}
+
+.time__time {
+}
+
+.time__date {
+  padding-left: .6rem;
+  color: $theme-date;
+}
+
+// calendar
+.cal {
+  border-radius: 12px;
+  background-color: $theme-popup-bg;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 18px;
+  font-weight: normal;
+
+  .cal-in {
+    padding: 0px 10px 0px 10px;
+    color: $theme-calendar-selected-mon;
+
+    .cal {
+      &.highlight {
+        padding: 20px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+    }
+  }
+}
+
+calendar:selected {
+  color: $theme-calendar-selected-day;
+}
+
+calendar.header {
+  color: $theme-calendar-btn-text;
+  font-weight: bold;
+}
+
+calendar.highlight {
+  color: $theme-calendar-weekdays;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $theme-calendar-btn-arrows;
+}
+
+calendar:indeterminate {
+  color: $theme-calendar-neighbor-days;
+}

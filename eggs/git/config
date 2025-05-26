@@ -1,0 +1,43 @@
+[user]
+    name = Filip Joska
+    email = filip@joska.dev
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+	format = ssh
+
+[core]
+    compression = 7
+    preloadindex = true
+
+[status]
+    branch = true
+    showStash = true
+
+[diff]
+    renames = copies
+
+[push]
+    autoSetupRemote = true
+    default = current
+
+[pull]
+    default = current
+    rebase = true
+
+[rebase]
+    missingCommitsCheck = warn
+
+[pager]
+    branch = false
+    tag = false
+
+[commit]
+    gpgSign = true
+    template = ~/.config/git/template
+
+[url "git@github.com:jimmyl0l3c/"]
+    insteadOf = "fj:"
+
+[url "git@github.com:"]
+    insteadOf = "gh:"

@@ -1,0 +1,24 @@
+(deflisten workspaces_main :initial "[]" "bash ./modules/workspaces/scripts/get_workspaces.sh 1 5")
+
+(defwidget workspaces_main_list []
+  (box :space-evenly false
+    (for workspace in workspaces_main
+      (eventbox :class "workspace-button"
+        :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (box :space-evenly false
+          :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.is_active ? "current" : ""}"
+          (label :class "w-checkbox"
+            :text {workspace.id == focused_workspace ? "󰄳 " : workspace.windows > 0 ? "󰄯 " : "󰄰 "}
+          )
+          (label :text {workspace.id})
+        )
+      )
+    )
+  )
+)
+
+(defwidget workspaces_main_module [class]
+  (box :class "box workspace-box ${class}" :space-evenly false
+    (workspaces_main_list)
+  )
+)

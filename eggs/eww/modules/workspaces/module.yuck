@@ -1,0 +1,34 @@
+(include "./widgets/separator.yuck")
+
+(include "./modules/workspaces/_workspace_vertical.yuck")
+(include "./modules/workspaces/_workspace_main.yuck")
+
+(deflisten workspaces_special :initial "[]" "bash ./modules/workspaces/scripts/get_workspaces.sh 10 10")
+(deflisten focused_workspace :initial "1" "bash ./modules/workspaces/scripts/get_focused_workspace.sh")
+
+(defwidget workspaces_module []
+  (eventbox :onscroll "bash ./modules/workspaces/scripts/change_active_workspace.sh {} ${focused_workspace}"
+    :class "workspaces-widget"
+
+    (box :class "workspaces" :space-evenly false
+      (box :class "box workspace-box" :space-evenly false
+        (workspaces_main_list)
+        (separator)
+        (workspaces_vertical_list)
+        (separator)
+        (for workspace in workspaces_special
+          (eventbox :class "workspace-button"
+            :onclick "hyprctl dispatch workspace ${workspace.id}"
+            (box :space-evenly false
+              :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == focused_workspace ? "current" : ""}"
+              (label :class "w-checkbox"
+                :text {workspace.id == focused_workspace ? "󰄳 " : workspace.windows > 0 ? "󰄯 " : "󰄰 "}
+              )
+              (label :text {workspace.id})
+            )
+          )
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,24 @@
+(include "./modules/keyboard/module.yuck")
+(include "./modules/power_buttons/module.yuck")
+(include "./modules/systray/module.yuck")
+(include "./modules/sys_resources/module.yuck")
+(include "./modules/volume/module.yuck")
+(include "./modules/idle_inhibit/module.yuck")
+
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (volume_module)
+    (box :class "box" :space-evenly false
+      (simple_keyboard_layout_module)
+      (separator)
+      (simple_systray)
+      (separator)
+      (sys_resources_module)
+      (separator)
+      (idle_inhibit_module)
+      (separator)
+      (power_buttons_module)
+    )
+  )
+)

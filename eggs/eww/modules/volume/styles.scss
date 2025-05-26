@@ -1,0 +1,30 @@
+.volume_module {
+  border-radius: 12px;
+  padding: .4rem .6rem;
+  margin-right: .8rem;
+  background-color: $theme-bg;
+}
+
+.volume__main {
+  padding-right: 1.0rem;
+}
+
+.volume__chat {
+  padding-right: .8rem;
+}
+
+.volume__mic {
+  padding-right: .5rem;
+}
+
+.volume scale trough highlight {
+  background-color: $theme-metric-fill;
+  border-radius: 10px;
+}
+
+.volume scale trough {
+  background-color: $theme-metric-bg;
+  border-radius: 50px;
+  min-height: 4px;
+  min-width: 60px;
+}

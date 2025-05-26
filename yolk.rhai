@@ -1,7 +1,15 @@
-export let data = #{
-    for_vcs: LOCAL,
-    cool_setting: if SYSTEM.hostname == "foo" { 10 } else { 25 }
+export const device = #{
+    linux: SYSTEM.platform == "Linux",
+    windows: SYSTEM.platform == "Windows",
 };
+
 export let eggs = #{
-    //foo: #{ targets: "~/.config/your-application", enabled: false, templates: [] }
+    eww: #{ enabled: device.linux, targets: "~/.config/eww" },
+    hypr: #{ enabled: device.linux, targets: "~/.config/hypr" },
+    git: #{ targets: "~/.config/git" },
+    kitty: #{ enabled: device.linux, targets: "~/.config/kitty" },
+    mako: #{ enabled: device.linux, targets: "~/.config/mako" },
+    wofi: #{ enabled: device.linux, targets: "~/.config/wofi" },
+    tmux: #{ enabled: device.linux, targets: "~", strategy: "merge" },
+    zsh: #{ enabled: device.linux, targets: "~", strategy: "merge" },
 };
