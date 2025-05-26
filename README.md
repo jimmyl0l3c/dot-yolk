@@ -1,3 +1,7 @@
+# Dotfiles
+
+Using [yolk_dots](https://elkowar.github.io/yolk/) for managing dotfiles
+
 # To migrate
 
 - wezterm (windows only)
