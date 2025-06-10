@@ -1,6 +1,7 @@
 export const device = #{
     linux: SYSTEM.platform == "Linux",
     windows: SYSTEM.platform == "Windows",
+    arch: SYSTEM.distro == "Arch Linux"
 };
 
 export let eggs = #{
@@ -8,11 +9,11 @@ export let eggs = #{
     nvim: #{ targets: if device.linux { "~/.config/nvim" } else { "~/AppData/Local/nvim" } },
 
     // Arch setup
-    eww: #{ enabled: device.linux, targets: "~/.config/eww" },
-    hypr: #{ enabled: device.linux, targets: "~/.config/hypr" },
-    kitty: #{ enabled: device.linux, targets: "~/.config/kitty" },
-    mako: #{ enabled: device.linux, targets: "~/.config/mako" },
-    wofi: #{ enabled: device.linux, targets: "~/.config/wofi" },
+    eww: #{ enabled: device.arch, targets: "~/.config/eww" },
+    hypr: #{ enabled: device.arch, targets: "~/.config/hypr" },
+    kitty: #{ enabled: device.arch, targets: "~/.config/kitty" },
+    mako: #{ enabled: device.arch, targets: "~/.config/mako" },
+    wofi: #{ enabled: device.arch, targets: "~/.config/wofi" },
 
     // General linux setup
     tmux: #{ enabled: device.linux, targets: "~", strategy: "merge" },
