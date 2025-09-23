@@ -11,6 +11,7 @@ export let eggs = #{
     // Arch setup
     eww: #{ enabled: device.arch, targets: "~/.config/eww" },
     hypr: #{ enabled: device.arch, targets: "~/.config/hypr" },
+    hyprSddm: #{ enabled: device.arch, targets: "/var/lib/sddm/.config/hypr" },
     kitty: #{ enabled: device.arch, targets: "~/.config/kitty" },
     mako: #{ enabled: device.arch, targets: "~/.config/mako" },
     wofi: #{ enabled: device.arch, targets: "~/.config/wofi" },
