@@ -15,6 +15,7 @@ export let eggs = #{
     kitty: #{ enabled: device.arch, targets: "~/.config/kitty" },
     mako: #{ enabled: device.arch, targets: "~/.config/mako" },
     wofi: #{ enabled: device.arch, targets: "~/.config/wofi" },
+    gaming: #{ enabled: device.arch, targets: "~/.gaming/" },
 
     // General linux setup
     tmux: #{ enabled: device.linux, targets: "~", strategy: "merge" },
