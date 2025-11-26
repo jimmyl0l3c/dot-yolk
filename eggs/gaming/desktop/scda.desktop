@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Splinter Cell Double Agent
+Exec=/home/joskaf/.gaming/run-scda.py
+Terminal=true
+Type=Application
+Categories=Game;

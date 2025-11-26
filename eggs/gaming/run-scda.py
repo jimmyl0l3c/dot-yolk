@@ -13,6 +13,8 @@ game works ok (except some graphical glitches that can be mostly fixed by tweaki
 To solve this problem, I wrote this short script that waits for the scdalauncher to appear, then it clicks the
 singleplayer button and exits.
 
+The script expects the game to be installed in Heroic Launcher with the game's executable being set to scdalauncher.
+
 Requirements:
 - hyprland (uses hyprctl to detect the window)
 - ydotool (used to click the button)
@@ -22,6 +24,7 @@ import json
 import subprocess
 import time
 
+GAME_APPNAME = "hpfeY2xRaVTmpg8dzLNexQ"
 GAME_TITLE = "Tom Clancy's SplinterCell 4"
 
 LAUNCHER_CLASS = "steam_app_0".lower()
@@ -30,6 +33,10 @@ LAUNCHER_SIZE = [640, 360]
 
 TARGET_POS = (365, 210)
 """Approximate position of the `singleplayer` button relative to the window."""
+
+
+def start_game():
+    subprocess.run(["xdg-open", f"heroic://launch?appName={GAME_APPNAME}&runner=sideload"], check=True)
 
 
 def start_ydotoold() -> subprocess.Popen:
@@ -59,6 +66,7 @@ def click_at_position(x, y):
 
 
 def main():
+    start_game()
     daemon = start_ydotoold()
 
     print("Waiting for Splinter Cell launcher window...")
