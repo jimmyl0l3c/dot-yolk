@@ -1,5 +1,9 @@
 (defwidget power_buttons_module []
   (box :class "power_button"
+    (button :class "power_button__restart_uefi"
+      :onclick "bash ./modules/confirm_dialog/scripts/open_dialog.sh 'systemctl reboot --firmware-setup'"
+      ""
+    )
     (button :class "power_button__restart"
       :onclick "bash ./modules/confirm_dialog/scripts/open_dialog.sh 'systemctl reboot'"
       ""

@@ -24,6 +24,8 @@ import json
 import subprocess
 import time
 
+WAIT_TIMEOUT_MINUTES = 3
+
 GAME_APPNAME = "hpfeY2xRaVTmpg8dzLNexQ"
 GAME_TITLE = "Tom Clancy's SplinterCell 4"
 
@@ -36,7 +38,7 @@ TARGET_POS = (365, 210)
 
 
 def start_game():
-    subprocess.run(["xdg-open", f"heroic://launch?appName={GAME_APPNAME}&runner=sideload"], check=True)
+    subprocess.Popen(["xdg-open", f"heroic://launch?appName={GAME_APPNAME}&runner=sideload"])
 
 
 def start_ydotoold() -> subprocess.Popen:
@@ -73,7 +75,7 @@ def main():
 
     # Wait for window to appear
     window = None
-    for _ in range(120):
+    for _ in range(WAIT_TIMEOUT_MINUTES * 120):
         window = get_window_info()
         if window:
             print(f"Found window: {window['title']}")
