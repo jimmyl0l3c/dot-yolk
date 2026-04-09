@@ -1,37 +1,23 @@
-# Add deno completions to search path
+# Add completions dir to search path
 if [[ ":$FPATH:" != *":/home/joskaf/.zsh/completions:"* ]]; then export FPATH="/home/joskaf/.zsh/completions:$FPATH"; fi
-# If you come from bash you might have to change your $PATH.
+
+# Have bash bin dirs in $PATH
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell" # set by `omz`
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Set name of the theme to load, see https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -49,20 +35,15 @@ ZSH_THEME="robbyrussell" # set by `omz`
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+# Set format of execution time in history command output
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -82,28 +63,28 @@ plugins=(
     copyfile
     safe-paste
     urltools
-    # vi-mode
     zoxide
     docker
+    docker-compose
     golang
     tmux
+    # vi-mode
     keychain
 )
 
-zstyle ':omz:plugins:docker' aliases no
 zstyle ':omz:plugins:git' aliases no
+
+zstyle ':omz:plugins:docker' aliases no
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+zstyle ':omz:plugins:docker-compose' aliases no
+
+zstyle ':omz:plugins:golang' aliases no
 
 zstyle ':omz:plugins:keychain' agents gpg,ssh
 zstyle ':omz:plugins:keychain' options --quiet --noask --timeout 5
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-export VI_MODE_SET_CURSOR=true
-export MODE_INDICATOR="%F{yellow}NORMAL%f"
-export INSERT_MODE_INDICATOR="%F{blue}INSERT%f"
+# colorize plugin config
 
 export ZSH_COLORIZE_TOOL=chroma
 export ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
@@ -111,11 +92,23 @@ export ZSH_COLORIZE_STYLE="friendly"
 
 export LESSOPEN='| p() { chroma --style="friendly" --formatter="terminal256" --fail "$1" || cat "$1"; }; p "%s"'
 
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOSTART_ONCE=true
-export ZSH_TMUX_AUTOCONNECT=true
-export ZSH_TMUX_AUTOQUIT=true
+# tmux plugin config
+
+export ZSH_TMUX_AUTOSTART="true"
+export ZSH_TMUX_AUTOSTART_ONCE="true"
+export ZSH_TMUX_AUTOCONNECT="true"
+export ZSH_TMUX_AUTOQUIT="true"
 export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
+
+# vi-mode plugin config
+
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+export VI_MODE_SET_CURSOR=true
+export MODE_INDICATOR="%F{yellow}NORMAL%f"
+export INSERT_MODE_INDICATOR="%F{blue}INSERT%f"
+
+source $ZSH/oh-my-zsh.sh
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
