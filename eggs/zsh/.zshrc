@@ -58,7 +58,7 @@ plugins=(
     aliases
     colored-man-pages
     colorize
-    compleat
+    # compleat
     copypath
     copyfile
     safe-paste
@@ -67,6 +67,11 @@ plugins=(
     docker
     docker-compose
     golang
+    # helm
+    jfrog
+    asdf
+    uv
+    rust
     tmux
     # vi-mode
     keychain
@@ -80,6 +85,8 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 zstyle ':omz:plugins:docker-compose' aliases no
 
 zstyle ':omz:plugins:golang' aliases no
+# zstyle ':omz:plugins:helm' aliases no
+zstyle ':omz:plugins:uv' aliases no
 
 zstyle ':omz:plugins:keychain' agents gpg,ssh
 zstyle ':omz:plugins:keychain' options --quiet --noask --timeout 5
@@ -109,7 +116,6 @@ export INSERT_MODE_INDICATOR="%F{blue}INSERT%f"
 
 source $ZSH/oh-my-zsh.sh
 
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -137,11 +143,13 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# bind alt+.
 bindkey '^[.' insert-last-word
 
 . "$HOME/.local/bin/env"
 
 eval `ssh-agent -t 5m`
+
 . "/home/joskaf/.deno/env"
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
