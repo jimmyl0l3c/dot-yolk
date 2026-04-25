@@ -17,6 +17,7 @@ export let eggs = #{
     mako: #{ enabled: device.archHome, targets: "~/.config/mako" },
     wofi: #{ enabled: device.archHome, targets: "~/.config/wofi" },
     gaming: #{ enabled: device.archHome, targets: "~/.gaming/" },
+    MangoHud: #{ enabled: device.archHome, targets: "~/.config/MangoHud" },
 
     // General linux setup
     tmux: #{ enabled: device.linux, targets: "~", strategy: "merge" },
