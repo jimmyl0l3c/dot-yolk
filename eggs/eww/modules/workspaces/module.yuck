@@ -18,7 +18,7 @@
         (separator)
         (for workspace in workspaces_special
           (eventbox :class "workspace-button"
-            :onclick "hyprctl dispatch workspace ${workspace.id}"
+            :onclick "hyprctl dispatch \"hl.dsp.focus({ workspace = '${workspace.id}' })\""
             (box :space-evenly false
               :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == focused_workspace ? "current" : ""}"
               (label :class "w-checkbox"
