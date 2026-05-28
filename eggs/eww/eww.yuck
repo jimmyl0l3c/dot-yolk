@@ -1,54 +1,82 @@
-(include "./widgets/side_stuff.yuck")
+; {% if device.archHome %}
+;<yolk> (include "./widgets/side_stuff.yuck")
+; {% end %}
 (include "./widgets/separator.yuck")
 
+
+; {% if device.archHome %}
+;<yolk> (include "./modules/workspaces/module.yuck")
+; {% end %}
 (include "./modules/workspaces/module.yuck")
 (include "./modules/time/module.yuck")
 (include "./modules/confirm_dialog/module.yuck")
 
-(defwidget bar []
-  (centerbox :orientation "h"
-    (workspaces_module)
-    (time_module)
-    (sidestuff)
-  )
-)
+; {% if device.archHome %}
+;<yolk> (defwidget bar []
+  ;<yolk> (centerbox :orientation "h"
+    ;<yolk> (workspaces_module)
+    ;<yolk> (time_module)
+    ;<yolk> (sidestuff)
+  ;<yolk> )
+;<yolk> )
 
-(defwindow bar
-  :monitor 1
-  :geometry (geometry :x "0%"
-    :y "0%"
-    :width "100%"
-    :height "10px"
-    :anchor "top center")
-  :stacking "bg"
-  :exclusive true
-  (bar)
-)
+;<yolk> (defwindow bar
+  ;<yolk> :monitor 1
+  ;<yolk> :geometry (geometry :x "0%"
+    ;<yolk> :y "0%"
+    ;<yolk> :width "100%"
+    ;<yolk> :height "10px"
+    ;<yolk> :anchor "top center")
+  ;<yolk> :stacking "bg"
+  ;<yolk> :exclusive true
+  ;<yolk> (bar)
+;<yolk> )
 
-(defwidget bar_right []
-  (box :space-evenly false
-    (simple_time_module)
-    (workspaces_vertical_module :class "margin-x")
-    (box :class "box" :space-evenly false
-      (simple_keyboard_layout_module)
-      (separator)
-      (simple_systray)
-      (separator)
-      (sys_resources_module)
-    )
-  )
-)
+;<yolk> (defwidget bar_right []
+  ;<yolk> (box :space-evenly false
+    ;<yolk> (simple_time_module)
+    ;<yolk> (workspaces_vertical_module :class "margin-x")
+    ;<yolk> (box :class "box" :space-evenly false
+      ;<yolk> (simple_keyboard_layout_module)
+      ;<yolk> (separator)
+      ;<yolk> (simple_systray)
+      ;<yolk> (separator)
+      ;<yolk> (sys_resources_module)
+    ;<yolk> )
+  ;<yolk> )
+;<yolk> )
 
-(defwindow bar_right
-  :monitor 0
-  :geometry (geometry :x "0%"
-    :y "0%"
-    :width "100%"
-    :height "10px"
-    :anchor "bottom center")
-  :stacking "bg"
-  :exclusive true
-  (bar_right)
-)
+;<yolk> (defwindow bar_right
+  ;<yolk> :monitor 0
+  ;<yolk> :geometry (geometry :x "0%"
+    ;<yolk> :y "0%"
+    ;<yolk> :width "100%"
+    ;<yolk> :height "10px"
+    ;<yolk> :anchor "bottom center")
+  ;<yolk> :stacking "bg"
+  ;<yolk> :exclusive true
+  ;<yolk> (bar_right)
+;<yolk> )
+; {% end %}
+
+; {% if device.archFwk %}
+;<yolk> (defwidget bar_fwk []
+  ;<yolk> (box :space-evenly false
+    ;<yolk> (simple_time_module)
+  ;<yolk> )
+;<yolk> )
+
+;<yolk> (defwindow bar_fwk
+  ;<yolk> :monitor 0
+  ;<yolk> :geometry (geometry :x "0%"
+    ;<yolk> :y "0%"
+    ;<yolk> :width "100%"
+    ;<yolk> :height "10px"
+    ;<yolk> :anchor "bottom center")
+  ;<yolk> :stacking "bg"
+  ;<yolk> :exclusive true
+  ;<yolk> (bar_fwk)
+;<yolk> )
+; {% end %}
 
 ; TODO: add sound device selection?

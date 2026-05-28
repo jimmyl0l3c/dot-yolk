@@ -11,14 +11,15 @@ export let eggs = #{
     nvim: #{ targets: if device.linux { "~/.config/nvim" } else { "~/AppData/Local/nvim" } },
 
     // Arch setup
-    eww: #{ enabled: device.archHome, targets: "~/.config/eww" },
     hypr: #{ enabled: device.archHome, targets: "~/.config/hypr" },
     hyprSddm: #{ enabled: device.archHome, targets: "/var/lib/sddm/.config/hypr" },
-    kitty: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/kitty" },
-    mako: #{ enabled: device.archHome, targets: "~/.config/mako" },
     wofi: #{ enabled: device.archHome, targets: "~/.config/wofi" },
     gaming: #{ enabled: device.archHome, targets: "~/.gaming/" },
     MangoHud: #{ enabled: device.archHome, targets: "~/.config/MangoHud" },
+
+    eww: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/eww", templates: ["eww.yuck", "modules/confirm_dialog/module.yuck", "modules/time/_calendar.yuck"] },
+    mako: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/mako" },
+    kitty: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/kitty" },
 
     // Arch with River
     river: #{ enabled: device.archFwk, targets: "~/.config/river" },
