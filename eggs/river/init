@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+wlr-randr --output eDP-1 --scale 1.6
+
+/home/joskaf/go/bin/crofflewm
