@@ -19,3 +19,12 @@
 .resource-nearly-full {
   color: $theme-resources-nearly-full;
 }
+
+.battery-low {
+  color: $theme-resources-nearly-full;
+}
+
+.battery-charging {
+  // TODO: replace this color with green or similar
+  color: $theme-resources-above-half;
+}

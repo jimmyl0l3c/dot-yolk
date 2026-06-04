@@ -1,13 +1,15 @@
 ; {% if device.archHome %}
 ;<yolk> (include "./widgets/side_stuff.yuck")
 ; {% end %}
+; {% if device.archFwk %}
+;<yolk> (include "./widgets/side_stuff_fwk.yuck")
+; {% end %}
 (include "./widgets/separator.yuck")
 
 
 ; {% if device.archHome %}
 ;<yolk> (include "./modules/workspaces/module.yuck")
 ; {% end %}
-(include "./modules/workspaces/module.yuck")
 (include "./modules/time/module.yuck")
 (include "./modules/confirm_dialog/module.yuck")
 
@@ -61,10 +63,12 @@
 
 ; {% if device.archFwk %}
 ;<yolk> (defwidget bar_fwk []
-  ;<yolk> (box :space-evenly false
+  ;<yolk> (centerbox :orientation "h"
+    ;<yolk> (label :text "")
     ;<yolk> (simple_time_module)
+    ;<yolk> (sidestuff_fwk)
+    ;<yolk> )
   ;<yolk> )
-;<yolk> )
 
 ;<yolk> (defwindow bar_fwk
   ;<yolk> :monitor 0
