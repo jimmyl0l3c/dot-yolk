@@ -65,7 +65,7 @@
 ;<yolk> (defwidget bar_fwk []
   ;<yolk> (centerbox :orientation "h"
     ;<yolk> (label :text "")
-    ;<yolk> (simple_time_module)
+    ;<yolk> (time_module)
     ;<yolk> (sidestuff_fwk)
     ;<yolk> )
   ;<yolk> )
@@ -76,7 +76,7 @@
     ;<yolk> :y "0%"
     ;<yolk> :width "100%"
     ;<yolk> :height "10px"
-    ;<yolk> :anchor "bottom center")
+    ;<yolk> :anchor "top center")
   ;<yolk> :stacking "bg"
   ;<yolk> :exclusive true
   ;<yolk> (bar_fwk)
