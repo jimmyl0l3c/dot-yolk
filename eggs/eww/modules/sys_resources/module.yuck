@@ -21,7 +21,9 @@
 
 (defwidget sys_resources_module []
   (box :class "sys-resources-module" :space-evenly false
-    (_battery_charge :device {EWW_BATTERY.BAT1} :value_class "resource-mr" )
+; {% if device.archFwk %}
+    ;<yolk> (_battery_charge :device {EWW_BATTERY.BAT1} :value_class "resource-mr" )
+; {% end %}
     (_resource_used :label ""
       :value {round(EWW_RAM.used_mem_perc, 0 )}
       :value_class "resource-mr"

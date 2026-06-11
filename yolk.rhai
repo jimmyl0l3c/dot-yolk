@@ -17,13 +17,13 @@ export let eggs = #{
     gaming: #{ enabled: device.archHome, targets: "~/.gaming/" },
     MangoHud: #{ enabled: device.archHome, targets: "~/.config/MangoHud" },
 
-    eww: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/eww", templates: ["eww.yuck", "modules/confirm_dialog/module.yuck", "modules/time/_calendar.yuck"] },
+    eww: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/eww", templates: ["eww.yuck", "modules/confirm_dialog/module.yuck", "modules/time/_calendar.yuck", "modules/sys_resources/module.yuck"] },
     mako: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/mako" },
     kitty: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/kitty" },
+    fuzzel: #{ enabled: device.archHome || device.archFwk, targets: "~/.config/fuzzel" },
 
     // Arch with River
     river: #{ enabled: device.archFwk, targets: "~/.config/river" },
-    fuzzel: #{ enabled: device.archFwk, targets: "~/.config/fuzzel" },
     croffle: #{ enabled: device.archFwk, targets: "~/.config/croffle" },
 
     // General linux setup
