@@ -101,11 +101,13 @@ export LESSOPEN='| p() { chroma --style="friendly" --formatter="terminal256" --f
 
 # tmux plugin config
 
+# {% if !device.archFwk %}
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOSTART_ONCE="true"
 export ZSH_TMUX_AUTOCONNECT="true"
 export ZSH_TMUX_AUTOQUIT="true"
 export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
+# {% end %}
 
 # vi-mode plugin config
 
@@ -150,18 +152,6 @@ bindkey '^[.' insert-last-word
 
 eval `ssh-agent -t 5m`
 
-. "/home/joskaf/.deno/env"
-# Initialize zsh completions (added by deno install script)
-autoload -Uz compinit
-compinit
-# pnpm
-export PNPM_HOME="/home/joskaf/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -169,4 +159,6 @@ export NVM_DIR="$HOME/.nvm"
 # dotnet
 # export PATH="$PATH:/home/joskaf/.dotnet/tools"
 
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
+
+export PATH=$HOME/go/bin:$HOME/.cargo/bin:$PATH

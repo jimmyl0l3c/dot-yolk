@@ -28,5 +28,5 @@ export let eggs = #{
 
     // General linux setup
     tmux: #{ enabled: device.linux, targets: "~", strategy: "merge" },
-    zsh: #{ enabled: device.linux, targets: "~", strategy: "merge" },
+    zsh: #{ enabled: device.linux, targets: "~", strategy: "merge", templates: [".zshrc"] },
 };
