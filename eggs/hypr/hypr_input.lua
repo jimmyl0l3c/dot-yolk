@@ -5,7 +5,7 @@
 hl.config({
     cursor = {
         no_hardware_cursors = true,
-        default_monitor = "DP-3",
+        default_monitor = "DP-2",
     },
 
     input = {

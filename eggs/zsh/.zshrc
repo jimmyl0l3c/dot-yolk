@@ -159,6 +159,9 @@ export NVM_DIR="$HOME/.nvm"
 # dotnet
 # export PATH="$PATH:/home/joskaf/.dotnet/tools"
 
-#. "$HOME/.cargo/env"
+export PATH="$PATH:/home/joskaf/go/bin:/home/joskaf/odin:/home/joskaf/flutter/bin"
 
-export PATH=$HOME/go/bin:$HOME/.cargo/bin:$PATH
+# export PATH=$HOME/go/bin:$HOME/.cargo/bin:$PATH
+. "$HOME/.cargo/env"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
