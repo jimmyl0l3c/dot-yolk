@@ -159,9 +159,12 @@ export NVM_DIR="$HOME/.nvm"
 # dotnet
 # export PATH="$PATH:/home/joskaf/.dotnet/tools"
 
-export PATH="$PATH:/home/joskaf/go/bin:/home/joskaf/odin:/home/joskaf/flutter/bin"
+export PATH="$PATH:/home/joskaf/go/bin:/home/joskaf/.cargo/bin:/home/joskaf/odin:/home/joskaf/flutter/bin"
 
-# export PATH=$HOME/go/bin:$HOME/.cargo/bin:$PATH
+# {% if !device.archFwk %}
 . "$HOME/.cargo/env"
+# {% end %}
 
+# {% if !device.archFwk %}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+# {% end %}
