@@ -107,6 +107,12 @@ hl.window_rule({
     fullscreen = true,
     match = { class = "^steam_app_\\d+$", initial_title = "negative:^Ubisoft Connect$", title = "negative:^\\s*$" },
 })
+hl.window_rule({
+    name = "wowarcraft",
+    workspace = 10,
+    fullscreen = true,
+    match = { initial_title = "World of Warcraft", class = "steam_app_default" },
+})
 
 -- xwaylandvideobridge
 hl.window_rule({
